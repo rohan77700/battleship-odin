@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+}
+  
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #dbeafe, #e0f2fe);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+  
+h1, h2 {
+    margin: 0.5em 0;
+    color: #1e3a8a;
+    font-size: 3rem;
+}
+
+#setup-screen,
+#game-screen {
+    padding: 2rem;
+}
+  
+input[type="text"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 220px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+  
+button {
+    padding: 1rem;
+    font-size: 1rem;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s ease;
+    margin: 1rem;
+}
+  
+button:hover {
+    background: #1e40af;
+    transform: translateY(-2px);
+}
+  
+.hidden {
+    display: none;
+}
+  
+.boards {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+  
+.board {
+    display: grid;
+    grid-template-columns: repeat(10, 36px);
+    grid-template-rows: repeat(10, 36px);
+    gap: 3px;
+    justify-content: center;
+    background: #cbd5e1;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+  
+.cell {
+    width: 36px;
+    height: 36px;
+    background: #e2e8f0;
+    border: 1px solid #94a3b8;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s, transform 0.2s;
+}
+  
+.cell:hover {
+    background: #cbd5e1;
+    transform: scale(1.05);
+}
+  
+.cell.ship::before {
+    content: "🚢";
+    font-size: 1.1rem;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+  
+.cell.hit::before {
+    content: "💥";
+    font-size: 1.3rem;
+    color: crimson;
+    animation: hitPop 0.4s ease;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+  
+.cell.miss::before {
+    content: "❌";
+    font-size: 1.1rem;
+    color: #64748b;
+    animation: missFade 0.3s ease;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+#player-board,
+#ai-board {
+    background: linear-gradient(to bottom right, #3b82f6, #0ea5e9);
+    border: 2px solid #1e3a8a;
+    box-shadow: 0 0 20px rgba(0, 149, 255, 0.3);
+}
+
+#player-board .cell,
+#ai-board .cell {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+  
+#controls {
+    margin: 1.5rem 0;
+    font-size: 1.2rem;
+    color: #334155;
+}
+  
+#result {
+    margin-top: 2rem;
+}
+  
+#winner-text {
+    color: #065f46;
+    font-size: 2rem;
+    font-weight: bold;
+}
+  
+#start-battle-btn {
+    font-size: 1.1rem;
+    background: #16a34a;
+    margin-top: 1rem;
+}
+  
+#start-battle-btn:hover {
+    background: #15803d;
+}
+  
+#ai-board-section.hidden {
+    display: none;
+}
